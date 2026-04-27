@@ -1,12 +1,10 @@
 # Bitfocus Companion for Rundown by Stagepoint
 
-Bitfocus Companion module for [Rundown by Stagepoint](https://stagepoint.app). Lets a show caller drive their rundown, Next, Previous, Pause, Stop, Reset, time adjustments, and speaker messages, with feedbacks.
+Bitfocus Companion module for [Rundown by Stagepoint](https://stagepoint.app). It lets a show caller drive their Rundown (Next, Previous, Pause, Stop, Reset, Time Adjustments, and Speaker Messages) with feedbacks.
 
 ## How it works
 
-The module is auth'd by a single Rundown API key. The owner of that key is the show caller; whichever rundown they are the active showcaller on is the one Companion controls. There is no "target user" field, when the account associated with the API key become show caller for a different rundown in the app, Companion follows automatically. It is important that the API key be generated from the account that will be the show caller for this reason.
-
-Feedback values are populated by polling `POST /api/companion/state` (default every 500ms).
+The module is auth'd by a single Rundown API key. The owner of that key is the show caller; whichever rundown they are the active showcaller on is the one Companion controls. There is no "target user" field, when the account associated with the API key become show caller for a Rundown in the app, Companion follows automatically. It is important that the API key be generated from the account that will be the show caller for this reason.
 
 ## Configuration
 
@@ -18,19 +16,21 @@ The host is hard-coded to `https://stagepoint.app`. The only thing you need to p
 | Feedback poll interval | Milliseconds between state polls (250 – 10000). Default: `500` |
 
 ## Actions
+The following Actions are available:
 
 - **Start / Next Cue** - advance to the next cue (or start the show)
 - **Previous Cue**
 - **Toggle Pause** - pauses if running, resumes if paused
 - **Stop** - stops the show, preserves timers
 - **Reset** - full reset (only valid after Stop)
-- **Adjust Time (seconds)** - `deltaSeconds`, supports Companion variables and negatives
-- **Send Speaker Message** - `text`, supports Companion variables (max 80 chars)
+- **Adjust Time (seconds)** - `Seconds`, supports Companion variables and negatives
+- **Send Speaker Message** - `Text`, supports Companion variables (max 80 chars)
 - **Toggle Message Flash**
-- **Set Message Background Color** - `default | info | warning | error | success`
+- **Set Message Background Color** - `Clear | Blue | Yellow | Red | Green`
 - **Clear Message**
 
-## Feedback variables
+## Feedback Variables
+The following Variables are available:
 
 | Variable | Description |
 | --- | --- |
@@ -45,15 +45,3 @@ The host is hard-coded to `https://stagepoint.app`. The only thing you need to p
 | `projected_end` | Projected end time string |
 | `is_paused` | `"true"` / `"false"` |
 | `is_stopped` | `"true"` / `"false"` |
-
-
-## Status messages
-
-| Status | Meaning |
-| --- | --- |
-| Connecting | Initial poll in flight |
-| OK | Last poll succeeded |
-| Authentication Failure | API key rejected (401) |
-| Unknown Warning | You are not currently the show caller for any rundown (409) |
-| Connection Failure | Network error reaching `stagepoint.app` |
-| Bad Config | API key blank |
