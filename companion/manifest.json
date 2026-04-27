@@ -1,10 +1,10 @@
 {
   "id": "stagepoint-rundown",
   "name": "stagepoint-rundown",
-  "shortname": "Rundown",
+  "shortname": "Rundown by Stagepoint",
   "manufacturer": "Stagepoint",
   "products": ["Rundown"],
-  "description": "Show-caller controls (Next/Previous/Pause/Stop/Reset, time adjust, speaker messages) and live feedback for Stagepoint Rundown.",
+  "description": "Show-caller controls (Next/Previous/Pause/Stop/Reset, time adjust, speaker messages) and live feedback for Rundown by Stagepoint.",
   "version": "0.1.0",
   "license": "MIT",
   "repository": "",

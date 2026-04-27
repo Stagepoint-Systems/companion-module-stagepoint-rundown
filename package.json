@@ -1,7 +1,7 @@
 {
   "name": "companion-module-stagepoint-rundown",
   "version": "0.1.0",
-  "description": "Bitfocus Companion module for Stagepoint Rundown — show-caller controls and feedback over the Rundown HTTP API.",
+  "description": "Bitfocus Companion module for Rundown by Stagepoint",
   "type": "module",
   "main": "src/main.js",
   "scripts": {

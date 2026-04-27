@@ -1,9 +1,4 @@
 import { combineRgb } from '@companion-module/base'
-
-/**
- * Boolean feedbacks driven by the latest /api/companion/state snapshot, which
- * the poller stores on `self.state`.
- */
 export function getFeedbackDefinitions(self) {
 	return {
 		is_paused: {
