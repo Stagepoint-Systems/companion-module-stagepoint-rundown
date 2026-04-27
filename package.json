@@ -1,0 +1,22 @@
+{
+  "name": "companion-module-stagepoint-rundown",
+  "version": "0.1.0",
+  "description": "Bitfocus Companion module for Stagepoint Rundown — show-caller controls and feedback over the Rundown HTTP API.",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "format": "prettier -w .",
+    "lint": "eslint .",
+    "package": "companion-module-build"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@companion-module/base": "~1.11.0"
+  },
+  "devDependencies": {
+    "@companion-module/tools": "^2.0.0"
+  },
+  "license": "MIT"
+}

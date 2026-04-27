@@ -1,0 +1,60 @@
+/**
+ * Format a signed seconds value as HH:MM:SS or MM:SS, with a leading + when over.
+ */
+export function formatSignedHms(totalSeconds, { plusForPositive = true } = {}) {
+	const value = Math.round(Number(totalSeconds) || 0)
+	const sign = value < 0 ? '-' : value > 0 && plusForPositive ? '+' : ''
+	const abs = Math.abs(value)
+	const h = Math.floor(abs / 3600)
+	const m = Math.floor((abs % 3600) / 60)
+	const s = abs % 60
+	const pad = (n) => String(n).padStart(2, '0')
+	if (h > 0) return `${sign}${h}:${pad(m)}:${pad(s)}`
+	return `${sign}${m}:${pad(s)}`
+}
+
+export function getVariableDefinitions() {
+	return [
+		{ variableId: 'cue_number', name: 'Current Cue Number' },
+		{ variableId: 'cue_title', name: 'Current Cue Title' },
+
+		{ variableId: 'cue_elapsed_sec', name: 'Cue Elapsed Time (seconds)' },
+		{ variableId: 'cue_elapsed', name: 'Cue Elapsed Time (formatted)' },
+
+		{ variableId: 'cue_remaining_sec', name: 'Cue Remaining Time (seconds, signed)' },
+		{ variableId: 'cue_remaining', name: 'Cue Remaining Time (formatted)' },
+
+		{ variableId: 'over_under_sec', name: 'Over/Under (seconds, signed)' },
+		{ variableId: 'over_under', name: 'Over/Under (formatted)' },
+
+		{ variableId: 'projected_end', name: 'Projected End' },
+
+		{ variableId: 'is_paused', name: 'Is Paused (true/false)' },
+		{ variableId: 'is_stopped', name: 'Is Stopped (true/false)' },
+	]
+}
+
+/**
+ * Map a /api/companion/state response to Companion variable values.
+ */
+export function variableValuesFromState(state) {
+	if (!state) return {}
+	return {
+		cue_number: state.currentCueNumber ?? '',
+		cue_title: state.currentCueTitle ?? '',
+
+		cue_elapsed_sec: state.elapsedSec ?? 0,
+		cue_elapsed: formatSignedHms(state.elapsedSec ?? 0, { plusForPositive: false }),
+
+		cue_remaining_sec: state.remainingSec ?? 0,
+		cue_remaining: formatSignedHms(state.remainingSec ?? 0, { plusForPositive: false }),
+
+		over_under_sec: state.overUnderSec ?? 0,
+		over_under: formatSignedHms(state.overUnderSec ?? 0),
+
+		projected_end: state.projectedEnd ?? '',
+
+		is_paused: state.isPaused ? 'true' : 'false',
+		is_stopped: state.isStopped ? 'true' : 'false',
+	}
+}
