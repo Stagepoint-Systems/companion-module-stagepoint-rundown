@@ -28,6 +28,17 @@ The following Actions are available:
 - **Toggle Message Flash**
 - **Set Message Background Color** - `Clear | Blue | Yellow | Red | Green`
 - **Clear Message**
+- **Sub-Timer: Start**
+- **Sub-Timer: Toggle Pause**
+- **Sub-Timer: Reset**
+- **Sub-Timer: Stop**
+- **Sub-Timer: Adjust Time (seconds)** - `Delta`, supports variables and negatives
+- **Sub-Timer: Set Preset** - `Time` (mm:ss, h:mm:ss, or seconds; supports variables)
+- **Sub-Timer: Stop At Zero** - `Mode` (Enable / Disable / Toggle)
+- **Speaker View: Set Timer Mode** - `Mode` (Main only / Sub only / Both)
+- **Speaker View: Main Only**
+- **Speaker View: Sub Only**
+- **Speaker View: Both**
 
 ## Feedback Variables
 The following Variables are available:
@@ -45,3 +56,19 @@ The following Variables are available:
 | `projected_end` | Projected end time string |
 | `is_paused` | `"true"` / `"false"` |
 | `is_stopped` | `"true"` / `"false"` |
+| `sub_remaining_sec` | Sub-timer remaining, signed integer seconds |
+| `sub_remaining` | Sub-timer remaining, formatted (`H:MM:SS` / `M:SS`) |
+| `sub_preset_sec` | Sub-timer preset, integer seconds |
+| `sub_preset` | Sub-timer preset, formatted |
+| `sub_is_running` | `"true"` / `"false"` |
+| `sub_stop_at_zero` | `"true"` / `"false"` |
+| `speaker_timer_mode` | `"mainOnly"` / `"subOnly"` / `"both"` |
+
+## Feedbacks
+The following Boolean feedbacks are available for button styling:
+
+- **Cue is Paused**, **Show is Stopped**, **Cue is Over Time**, **Show is Over Schedule**
+- **Sub-Timer Is Running**
+- **Sub-Timer At Zero**
+- **Sub-Timer Stop At Zero Enabled**
+- **Speaker View: Main Only / Sub Only / Both**
