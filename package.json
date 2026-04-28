@@ -10,7 +10,7 @@
     "package": "companion-module-build"
   },
   "engines": {
-    "node": ">=22"
+    "node": "^18.12 || ^22.8"
   },
   "dependencies": {
     "@companion-module/base": "~1.11.0"
