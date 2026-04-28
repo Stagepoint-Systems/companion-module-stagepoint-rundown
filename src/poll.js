@@ -38,6 +38,12 @@ export function startPolling(self) {
           "is_stopped",
           "is_over_time",
           "is_over_schedule",
+          "is_sub_running",
+          "is_sub_at_zero",
+          "is_sub_stop_at_zero",
+          "speaker_mode_main_only",
+          "speaker_mode_sub_only",
+          "speaker_mode_both",
         );
         return;
       }
