@@ -1,4 +1,4 @@
-# Bitfocus Companion for Rundown by Stagepoint
+# Rundown by Stagepoint
 
 Bitfocus Companion module for [Rundown by Stagepoint](https://stagepoint.app). It lets a show caller drive their Rundown (Next, Previous, Pause, Stop, Reset, Time Adjustments, and Speaker Messages) with feedbacks.
 

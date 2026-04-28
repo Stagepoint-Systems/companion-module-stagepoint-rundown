@@ -7,6 +7,8 @@ import { getConfigFields } from "./config.js";
 import { getActionDefinitions } from "./actions.js";
 import { getFeedbackDefinitions } from "./feedbacks.js";
 import { getVariableDefinitions } from "./variables.js";
+import { getPresetDefinitions } from "./presets.js";
+import { UpgradeScripts } from "./upgrades.js";
 import { startPolling, stopPolling } from "./poll.js";
 
 class StagepointRundownInstance extends InstanceBase {
@@ -19,6 +21,7 @@ class StagepointRundownInstance extends InstanceBase {
     this.setActionDefinitions(getActionDefinitions(this));
     this.setFeedbackDefinitions(getFeedbackDefinitions(this));
     this.setVariableDefinitions(getVariableDefinitions());
+    this.setPresetDefinitions(getPresetDefinitions(this));
 
     startPolling(this);
   }
@@ -39,4 +42,4 @@ class StagepointRundownInstance extends InstanceBase {
   }
 }
 
-runEntrypoint(StagepointRundownInstance, []);
+runEntrypoint(StagepointRundownInstance, UpgradeScripts);
