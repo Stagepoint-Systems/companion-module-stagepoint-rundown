@@ -7,12 +7,12 @@
   "description": "Show-caller controls (Next/Previous/Pause/Stop/Reset, time adjust, speaker messages) and live feedback for Rundown by Stagepoint.",
   "version": "0.1.0",
   "license": "MIT",
-  "repository": "",
-  "bugs": "",
+  "repository": "https://github.com/Stagepoint-Systems/companion-module-stagepoint-rundown.git",
+  "bugs": "https://github.com/Stagepoint-Systems/companion-module-stagepoint-rundown/issues",
   "maintainers": [
     {
-      "name": "Stagepoint",
-      "email": ""
+      "name": "Dylan Roberson",
+      "email": "myndphreak1@gmail.com"
     }
   ],
   "legacyIds": [],
