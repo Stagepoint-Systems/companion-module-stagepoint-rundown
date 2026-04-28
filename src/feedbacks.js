@@ -48,5 +48,77 @@ export function getFeedbackDefinitions(self) {
 			options: [],
 			callback: () => (self.state?.overUnderSec ?? 0) > 0,
 		},
+
+		is_sub_running: {
+			type: 'boolean',
+			name: 'Sub-Timer Is Running',
+			description: 'True when the sub-timer is actively counting down.',
+			defaultStyle: {
+				bgcolor: combineRgb(0, 150, 0),
+				color: combineRgb(255, 255, 255),
+			},
+			options: [],
+			callback: () => !!self.state?.subIsRunning,
+		},
+
+		is_sub_at_zero: {
+			type: 'boolean',
+			name: 'Sub-Timer At Zero',
+			description: 'True when the sub-timer remaining is at or below zero.',
+			defaultStyle: {
+				bgcolor: combineRgb(150, 0, 0),
+				color: combineRgb(255, 255, 255),
+			},
+			options: [],
+			callback: () => (self.state?.subRemainingSec ?? 0) <= 0,
+		},
+
+		is_sub_stop_at_zero: {
+			type: 'boolean',
+			name: 'Sub-Timer Stop At Zero Enabled',
+			description: 'True when the sub-timer is configured to stop at zero (default).',
+			defaultStyle: {
+				bgcolor: combineRgb(0, 100, 200),
+				color: combineRgb(255, 255, 255),
+			},
+			options: [],
+			callback: () => !!(self.state?.subStopAtZero ?? true),
+		},
+
+		speaker_mode_main_only: {
+			type: 'boolean',
+			name: 'Speaker View: Main Only',
+			description: 'True when the speaker view is showing only the main timer.',
+			defaultStyle: {
+				bgcolor: combineRgb(0, 100, 200),
+				color: combineRgb(255, 255, 255),
+			},
+			options: [],
+			callback: () => (self.state?.speakerTimerMode ?? 'mainOnly') === 'mainOnly',
+		},
+
+		speaker_mode_sub_only: {
+			type: 'boolean',
+			name: 'Speaker View: Sub Only',
+			description: 'True when the speaker view is showing only the sub-timer.',
+			defaultStyle: {
+				bgcolor: combineRgb(0, 100, 200),
+				color: combineRgb(255, 255, 255),
+			},
+			options: [],
+			callback: () => self.state?.speakerTimerMode === 'subOnly',
+		},
+
+		speaker_mode_both: {
+			type: 'boolean',
+			name: 'Speaker View: Both',
+			description: 'True when the speaker view is showing both timers.',
+			defaultStyle: {
+				bgcolor: combineRgb(0, 100, 200),
+				color: combineRgb(255, 255, 255),
+			},
+			options: [],
+			callback: () => self.state?.speakerTimerMode === 'both',
+		},
 	}
 }
