@@ -11,27 +11,24 @@ export function formatSignedHms(totalSeconds, { plusForPositive = true } = {}) {
 }
 
 export function getVariableDefinitions() {
-  return [
-    { variableId: "cue_number", name: "Current Cue Number" },
-    { variableId: "cue_title", name: "Current Cue Title" },
+  return {
+    cue_number: { name: "Current Cue Number" },
+    cue_title: { name: "Current Cue Title" },
 
-    { variableId: "cue_elapsed_sec", name: "Cue Elapsed Time (seconds)" },
-    { variableId: "cue_elapsed", name: "Cue Elapsed Time (formatted)" },
+    cue_elapsed_sec: { name: "Cue Elapsed Time (seconds)" },
+    cue_elapsed: { name: "Cue Elapsed Time (formatted)" },
 
-    {
-      variableId: "cue_remaining_sec",
-      name: "Cue Remaining Time (seconds, signed)",
-    },
-    { variableId: "cue_remaining", name: "Cue Remaining Time (formatted)" },
+    cue_remaining_sec: { name: "Cue Remaining Time (seconds, signed)" },
+    cue_remaining: { name: "Cue Remaining Time (formatted)" },
 
-    { variableId: "over_under_sec", name: "Over/Under (seconds, signed)" },
-    { variableId: "over_under", name: "Over/Under (formatted)" },
+    over_under_sec: { name: "Over/Under (seconds, signed)" },
+    over_under: { name: "Over/Under (formatted)" },
 
-    { variableId: "projected_end", name: "Projected End" },
+    projected_end: { name: "Projected End" },
 
-    { variableId: "is_paused", name: "Is Paused (true/false)" },
-    { variableId: "is_stopped", name: "Is Stopped (true/false)" },
-  ];
+    is_paused: { name: "Is Paused (true/false)" },
+    is_stopped: { name: "Is Stopped (true/false)" },
+  };
 }
 
 export function variableValuesFromState(state) {

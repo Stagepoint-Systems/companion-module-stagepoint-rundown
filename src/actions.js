@@ -90,10 +90,8 @@ export function getActionDefinitions(self) {
           useVariables: true,
         },
       ],
-      callback: async (event, context) => {
-        const raw = await context.parseVariablesInString(
-          event.options.deltaSeconds,
-        );
+      callback: async (event) => {
+        const raw = event.options.deltaSeconds;
         const delta = parseInt(raw, 10);
         if (!Number.isFinite(delta) || delta === 0) {
           self.log("warn", `Adjust Time: invalid delta "${raw}"`);
@@ -116,9 +114,8 @@ export function getActionDefinitions(self) {
           useVariables: true,
         },
       ],
-      callback: async (event, context) => {
-        const text =
-          (await context.parseVariablesInString(event.options.text)) || "";
+      callback: async (event) => {
+        const text = event.options.text || "";
         if (!text.trim()) {
           self.log("warn", "Send Speaker Message: empty text, skipping");
           return;

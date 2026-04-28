@@ -1,8 +1,4 @@
-import {
-  InstanceBase,
-  InstanceStatus,
-  runEntrypoint,
-} from "@companion-module/base";
+import { InstanceBase, InstanceStatus } from "@companion-module/base";
 import { getConfigFields } from "./config.js";
 import { getActionDefinitions } from "./actions.js";
 import { getFeedbackDefinitions } from "./feedbacks.js";
@@ -21,7 +17,7 @@ class StagepointRundownInstance extends InstanceBase {
     this.setActionDefinitions(getActionDefinitions(this));
     this.setFeedbackDefinitions(getFeedbackDefinitions(this));
     this.setVariableDefinitions(getVariableDefinitions());
-    this.setPresetDefinitions(getPresetDefinitions(this));
+    this.setPresetDefinitions([], getPresetDefinitions(this));
 
     startPolling(this);
   }
@@ -42,4 +38,5 @@ class StagepointRundownInstance extends InstanceBase {
   }
 }
 
-runEntrypoint(StagepointRundownInstance, UpgradeScripts);
+export { UpgradeScripts };
+export default StagepointRundownInstance;

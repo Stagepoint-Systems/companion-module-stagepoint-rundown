@@ -1,4 +1,6 @@
 {
+  "$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
+  "type": "connection",
   "id": "stagepoint-rundown",
   "name": "stagepoint-rundown",
   "shortname": "Rundown by Stagepoint",
@@ -19,7 +21,7 @@
   "runtime": {
     "type": "node22",
     "api": "nodejs-ipc",
-    "apiVersion": "1.11.0",
+    "apiVersion": "2.0.4",
     "entrypoint": "../src/main.js"
   },
   "keywords": ["rundown", "showcaller", "broadcast", "stagepoint"]
